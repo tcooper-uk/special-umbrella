@@ -2,24 +2,20 @@ import * as React from "react"
 
 import Card from "../Card/Card"
 
-import * as dataService from "../../mocks/dataService"
-import IDefect from "../../model/defect"
+import * as dataService from "../../mocks/dataServiceMock"
+import IDefectStat from "../../model/defectStatistic"
 
 
-interface CardLayoutProperties {
-    projectId: number
-}
-
-const CardLayout = (projectId: number) => {
+const CardLayout = (projectId: string) => {
     
-    const [defects, setDefects] = React.useState<IDefect[]>([]);
+    const [defects, setDefects] = React.useState<IDefectStat[]>([]);
     const [cards, setCards] = React.useState([]);
 
     React.useEffect(() => {
         dataService
-            .getDefectsForProject(projectId)
-            .then((defects: IDefect[]) => {
-                setDefects(defects);
+            .getDefectStatsForProject(projectId)
+            .then((stats: IDefectStat[]) => {
+                setDefects(stats);
                 renderCards();
             });
     }, [projectId]);

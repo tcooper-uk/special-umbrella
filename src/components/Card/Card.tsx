@@ -1,12 +1,12 @@
 import * as React from "react"
-import IDefect from "../../model/defect"
+import IDefectStat from "../../model/defectStatistic"
 
-const Card = ({name, projectId} : IDefect) => {
+const Card = ({name, amount} : IDefectStat) => {
 
     return (
         <div className="card">
             <h3>{name}</h3>
-            <p>{projectId.toString()}</p>
+            <p>{amount}</p>
         </div>
     );
 }

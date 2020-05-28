@@ -1,4 +1,4 @@
 export default interface IDefect {
-    projectId: number;
+    projectId: string;
     name: string;
 }
