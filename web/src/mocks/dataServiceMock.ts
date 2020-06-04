@@ -3,8 +3,8 @@
  * anticipating the back end doing the work of authenticating to bug tracker
  * and requesting the projects / defects recorded.
  */
-`
-import IProject from "../model/project.ts"`
+
+import IProject from "../model/project.ts"
 import IDefect from "../model/defect.ts"
 import IDefectStat from "../model/defectStatistic.ts"
 

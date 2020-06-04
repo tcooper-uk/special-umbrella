@@ -3,15 +3,24 @@ import statsSet from "../db/database.ts";
 
 type defectStatList = () => Promise<DefectStat[]>;
 
-const getDefectStats: defectStatList = async  () => {
+class dataService {
 
-    return (await statsSet).value().map<DefectStat>((s: any) => {
-        let d: DefectStat = {
-            name: s.name,
-            amount: s.amount
-        };
-        return d;
-    });
-};
+    getDefectStats: defectStatList = async () => {
 
-export default getDefectStats;
+        return statsSet.then(async (collection) => {
+
+            return collection
+                .value()
+                .map<DefectStat>((s: any) => {
+                    let d: DefectStat = {
+                        name: s.name,
+                        amount: s.amount
+                    };
+                    return d;
+                });
+        });
+    };
+
+}
+
+export default dataService;
