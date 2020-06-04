@@ -1,0 +1,20 @@
+{
+    "results": [
+        {
+            "name": "Defects in Production",
+            "amount": 145
+        },
+        {
+            "name": "Average defect age (days)",
+            "amount": 123
+        },
+        {
+            "name": "High priority defects",
+            "amount": 12
+        },
+        {
+            "name": "Average high priorty age (days)",
+            "amount": 10
+        }
+    ]
+}

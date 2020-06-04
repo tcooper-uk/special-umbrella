@@ -18,7 +18,7 @@ export const App = () => {
                 <section className="project-selection">
                     <ProjectSelect onChange={onProjectChange} />
                 </section>
-                <CardLayout {...projectId} />
+                <CardLayout projectId={projectId} />
             </div>
 
             <div className="container" >

@@ -5,20 +5,24 @@ import Card from "../Card/Card"
 import * as dataService from "../../mocks/dataServiceMock"
 import IDefectStat from "../../model/defectStatistic"
 
+interface CardLayoutProps {
+    projectId: string
+}
 
-const CardLayout = (projectId: string) => {
+const CardLayout = (props: CardLayoutProps) => {
     
     const [defects, setDefects] = React.useState<IDefectStat[]>([]);
     const [cards, setCards] = React.useState([]);
 
     React.useEffect(() => {
+        
         dataService
-            .getDefectStatsForProject(projectId)
+            .getDefectStatsForProject(props.projectId)
             .then((stats: IDefectStat[]) => {
                 setDefects(stats);
                 renderCards();
             });
-    }, [projectId]);
+    }, [props.projectId]);
 
     const renderCards = () => {
 

@@ -11,6 +11,7 @@ export interface ProjectSelectRequest {
 const ProjectSelect = (props: ProjectSelectRequest) => {
 
     const [projects, setProjects] = React.useState(null);
+    const projSelect = React.useRef(null);
 
     React.useEffect(() => {
         let counter: number = 0;
@@ -51,13 +52,15 @@ const ProjectSelect = (props: ProjectSelectRequest) => {
 
     const onProjectChange = (event: any) => {
 
-        window.localStorage.setItem(DEFAULT_PROJECT_KEY, event.target.value);
+        window.localStorage.setItem(DEFAULT_PROJECT_KEY, projSelect.current.value);        
+
+        console.log(projSelect.current.value);
         
-        props.onChange(event.target.value);
+        props.onChange(projSelect.current.value);
     }
 
     return (
-        <select onChange={onProjectChange}>
+        <select ref={projSelect} onChange={onProjectChange}>
             {projects}
         </select>
     )
